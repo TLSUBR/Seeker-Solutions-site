@@ -1,0 +1,11 @@
+{
+  "name": "seeker-solutions-site-old",
+  "version": "1.0.0",
+  "description": "[ARCHIVED] Seeker Solutions - Architectural AI Implementation & Business Automation",
+  "scripts": {
+    "build": "echo '✅ Static HTML site - no real build required' && mkdir -p dist && cp index.html dist/index.html"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
