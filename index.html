@@ -258,6 +258,55 @@ nav{
   color:var(--ivory-mute);letter-spacing:.1em;text-transform:uppercase;
 }
 
+/* CONTACT FORM */
+.contact-form{max-width:520px;margin:0 auto 3rem;text-align:left}
+.cf-row{margin-bottom:1.1rem}
+.cf-row label{
+  display:block;font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold-dim);margin-bottom:.5rem;
+}
+.cf-row input,.cf-row textarea,.cf-row select{
+  width:100%;padding:.8rem 1rem;background:var(--surface);
+  border:1px solid var(--rim);color:var(--ivory);
+  font-family:var(--sans);font-size:.92rem;transition:border-color .2s;
+}
+.cf-row input:focus,.cf-row textarea:focus,.cf-row select:focus{
+  outline:none;border-color:var(--gold-dim);
+}
+.cf-row textarea{min-height:110px;resize:vertical}
+.cf-submit{
+  width:100%;padding:.95rem;background:var(--gold);color:var(--night);
+  border:none;font-size:.82rem;font-weight:500;letter-spacing:.08em;
+  text-transform:uppercase;cursor:pointer;transition:background .2s;
+}
+.cf-submit:hover{background:#e0bc60}
+
+/* RESOURCES / FLYWHEEL */
+.resources{background:var(--deep)}
+.res-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;
+  background:var(--rim);border:1px solid var(--rim);margin-top:1rem;
+}
+.res-card{
+  background:var(--deep);padding:2.5rem;transition:background .25s;
+  display:flex;flex-direction:column;
+}
+.res-card:hover{background:var(--surface)}
+.res-num{
+  font-family:var(--mono);font-size:.65rem;color:var(--gold-dim);
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.25rem;
+}
+.res-card h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ivory);margin-bottom:.75rem}
+.res-card h3 em{color:var(--gold);font-style:italic}
+.res-card p{font-size:.9rem;color:var(--ivory-dim);line-height:1.75;margin-bottom:1.5rem;flex-grow:1}
+.res-link{
+  font-family:var(--mono);font-size:.72rem;color:var(--gold);
+  text-decoration:none;letter-spacing:.08em;text-transform:uppercase;
+  border-bottom:1px solid var(--gold-dim);padding-bottom:3px;align-self:flex-start;
+  transition:color .2s;
+}
+.res-link:hover{color:var(--ivory);border-color:var(--ivory)}
+
 /* FOOTER */
 footer{
   background:#0a0b0f;padding:1.5rem var(--gutter);
@@ -486,12 +535,66 @@ footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-
 
 <div class="gold-rule"></div>
 
+<div class="gold-rule"></div>
+
+<!-- RESOURCES / FLYWHEEL -->
+<section class="section resources">
+  <div class="section-inner">
+    <p class="s-label fade">More from Seeker Solutions</p>
+    <h2 class="s-h2 fade">Tools you can use <em>today</em></h2>
+    <p class="s-lead fade">Not every engagement starts with a call. Some start with something small you can use right now.</p>
+    <div class="res-grid">
+      <div class="res-card fade">
+        <p class="res-num">Directory</p>
+        <h3>Curated <em>directories</em></h3>
+        <p>A growing collection of niche directories — built and maintained with AI-assisted research, so each listing stays current with minimal manual upkeep.</p>
+        <a class="res-link" href="https://directory.seekersolutions.org" target="_blank" rel="noopener">Browse the directory →</a>
+      </div>
+      <div class="res-card fade">
+        <p class="res-num">Self-Serve</p>
+        <h3>Guides &amp; <em>resources</em></h3>
+        <p>Short, practical PDFs and templates drawn from the same frameworks behind the Clarity Intensive and the AI Audit — for when you want to start on your own.</p>
+        <a class="res-link" href="https://store.seekersolutions.org" target="_blank" rel="noopener">Visit the shop →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <p class="s-label fade" style="justify-content:center">Reach out</p>
   <h2 class="s-h2 fade" style="text-align:center;margin:0 auto 1rem">Let's have<br>a <em>real conversation</em></h2>
-  <p class="contact-lead fade">No forms. No discovery calls as a sales pitch. Just an honest email about what you're working on or working through. I'll respond within a day.</p>
-  <a class="contact-email fade" href="mailto:travis@seekersolutions.org">travis@seekersolutions.org</a>
+  <p class="contact-lead fade">Tell me a little about what you're working on or working through. I read every message myself and respond within a day.</p>
+  <form class="contact-form fade" action="https://formsubmit.co/travis@seekersolutions.org" method="POST">
+    <input type="hidden" name="_subject" value="New inquiry — Seeker Solutions" />
+    <input type="hidden" name="_next" value="https://seekersolutions.org/#contact" />
+    <input type="hidden" name="_captcha" value="false" />
+    <div class="cf-row">
+      <label for="cf-name">Name</label>
+      <input type="text" id="cf-name" name="name" required>
+    </div>
+    <div class="cf-row">
+      <label for="cf-email">Email</label>
+      <input type="email" id="cf-email" name="email" required>
+    </div>
+    <div class="cf-row">
+      <label for="cf-track">What brings you here?</label>
+      <select id="cf-track" name="track">
+        <option value="">Select one</option>
+        <option>AI Audit / Business Automation</option>
+        <option>Clarity Intensive / Personal Transition</option>
+        <option>Just exploring — not sure yet</option>
+      </select>
+    </div>
+    <div class="cf-row">
+      <label for="cf-msg">A little about what's going on</label>
+      <textarea id="cf-msg" name="message" required></textarea>
+    </div>
+    <button type="submit" class="cf-submit">Send</button>
+  </form>
+  <a class="contact-email fade" href="mailto:travis@seekersolutions.org">or email me directly →</a>
   <br>
   <p class="contact-note fade">Seeker Solutions LLC &nbsp;·&nbsp; Louisiana &nbsp;·&nbsp; Remote-first &nbsp;·&nbsp; Available worldwide</p>
 </section>
