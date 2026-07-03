@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seeker Solutions — Travis Henriquez</title>
-<meta name="description" content="AI consulting, automation, and clarity work for businesses and humans navigating real change. Founded by Travis Henriquez.">
+<meta name="description" content="Build systems that think with you. AI consulting and automation for businesses. Clarity work for the people navigating the change it creates. Founded by Travis Henriquez.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@ nav{
   border-bottom:1px solid rgba(201,168,76,0.1);
 }
 .nav-mark{font-family:var(--serif);font-size:1.3rem;color:var(--ivory);text-decoration:none;letter-spacing:.02em}
-.nav-mark em{color:var(--gold);font-style:italic}
+.nav-mark em{color:var(--gold);font-style:normal}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory-dim);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
@@ -68,28 +68,31 @@ nav{
 .hero-h1{
   font-family:var(--serif);
   font-size:clamp(3rem,7vw,6.5rem);
-  font-weight:400;line-height:1.0;
+  font-weight:400;line-height:1.05;
   color:var(--ivory);
-  margin-bottom:1rem;
+  margin-bottom:1.5rem;
 }
 .hero-h1 em{color:var(--gold);font-style:italic}
-.hero-h1 span{display:block}
 .hero-rule{width:4rem;height:1px;background:var(--gold-dim);margin:2rem 0}
 .hero-sub{
   font-size:clamp(1rem,2vw,1.15rem);
   color:var(--ivory-dim);
-  max-width:46ch;line-height:1.8;
-  margin-bottom:3rem;
+  max-width:52ch;line-height:1.8;
+  margin-bottom:1.25rem;
 }
 .hero-sub strong{color:var(--ivory);font-weight:500}
-.hero-actions{display:flex;gap:1.25rem;flex-wrap:wrap}
+.hero-unify{
+  font-family:var(--serif);font-style:italic;font-size:1.15rem;
+  color:var(--gold);max-width:52ch;line-height:1.6;margin-bottom:3rem;
+}
+.hero-actions{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:1rem}
 .btn-gold{
   display:inline-block;padding:.85rem 2rem;
   background:var(--gold);color:var(--night);
   font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;transition:all .2s;
+  text-decoration:none;transition:all .2s;border:1px solid var(--gold);
 }
-.btn-gold:hover{background:#e0bc60;transform:translateY(-2px)}
+.btn-gold:hover{background:transparent;color:var(--gold)}
 .btn-ghost{
   display:inline-block;padding:.85rem 2rem;
   background:transparent;color:var(--ivory-dim);
@@ -97,6 +100,11 @@ nav{
   text-decoration:none;border:1px solid var(--rim);transition:all .2s;
 }
 .btn-ghost:hover{border-color:var(--ivory-dim);color:var(--ivory)}
+.hero-tertiary{
+  font-family:var(--mono);font-size:.72rem;color:var(--ivory-mute);
+  letter-spacing:.06em;text-decoration:none;transition:color .2s;
+}
+.hero-tertiary:hover{color:var(--gold)}
 
 /* AMBIENT BACKGROUND SYMBOL */
 .hero-sigil{
@@ -122,7 +130,8 @@ nav{
   font-weight:400;line-height:1.1;color:var(--ivory);margin-bottom:1.25rem;
 }
 .s-h2 em{color:var(--gold);font-style:italic}
-.s-lead{font-size:1.02rem;color:var(--ivory-dim);max-width:52ch;line-height:1.8;margin-bottom:3.5rem}
+.s-lead{font-size:1.02rem;color:var(--ivory-dim);max-width:56ch;line-height:1.8;margin-bottom:3.5rem}
+.s-lead strong{color:var(--ivory);font-weight:500}
 
 /* TWO TRACKS */
 .tracks{background:var(--deep)}
@@ -150,7 +159,7 @@ nav{
 .track-items li{
   font-size:.88rem;color:var(--ivory-dim);
   padding:.5rem 0;border-bottom:1px solid var(--rim);
-  display:flex;align-items:baseline;gap:.75rem;
+  display:flex;align-items:center;gap:.75rem;
 }
 .track-items li::before{content:'→';color:var(--gold);font-size:.75rem;flex-shrink:0}
 @media(max-width:680px){.tracks-grid{grid-template-columns:1fr}}
@@ -160,7 +169,6 @@ nav{
 .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
 .about-body p{font-size:1rem;color:var(--ivory-dim);line-height:1.85;margin-bottom:1.25rem}
 .about-body p strong{color:var(--ivory);font-weight:500}
-.about-body p:last-child{margin-bottom:0}
 .about-aside{}
 .about-name{font-family:var(--serif);font-size:2.5rem;font-weight:400;color:var(--ivory);line-height:1.05;margin-bottom:.4rem}
 .about-name em{color:var(--gold);font-style:italic}
@@ -195,7 +203,7 @@ nav{
 .offer-list{list-style:none;margin-bottom:2rem}
 .offer-list li{
   font-size:.88rem;color:var(--ivory-dim);padding:.6rem 0;
-  border-bottom:1px solid var(--rim);display:flex;align-items:baseline;gap:.75rem;
+  border-bottom:1px solid var(--rim);display:flex;align-items:center;gap:.75rem;
 }
 .offer-list li::before{content:'—';color:var(--gold);flex-shrink:0}
 .offer-price{
@@ -277,9 +285,9 @@ nav{
 .cf-submit{
   width:100%;padding:.95rem;background:var(--gold);color:var(--night);
   border:none;font-size:.82rem;font-weight:500;letter-spacing:.08em;
-  text-transform:uppercase;cursor:pointer;transition:background .2s;
+  text-transform:uppercase;cursor:pointer;transition:opacity .2s;
 }
-.cf-submit:hover{background:#e0bc60}
+.cf-submit:hover{opacity:.85}
 
 /* RESOURCES / FLYWHEEL */
 .resources{background:var(--deep)}
@@ -318,10 +326,8 @@ footer{
 footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-spacing:.06em}
 
 /* FADE IN */
-@media(prefers-reduced-motion:no-preference){
-  .fade{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
-  .fade.in{opacity:1;transform:none}
-}
+.fade{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade.in{opacity:1;transform:translateY(0)}
 
 /* HORIZONTAL RULE */
 .gold-rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);margin:0}
@@ -343,20 +349,17 @@ footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-
 <section style="position:relative;overflow:hidden">
   <div class="hero fade">
     <p class="hero-pre">AI Consulting · Automation · Clarity Work</p>
-    <h1 class="hero-h1">
-      <span>The map</span>
-      <span>isn't the <em>territory.</em></span>
-      <span>But it helps.</span>
-    </h1>
+    <h1 class="hero-h1">Build systems that <em>think with you.</em></h1>
     <div class="hero-rule"></div>
     <p class="hero-sub">
-      I help <strong>small businesses</strong> implement AI tools and automation that actually reduce the work — and I help <strong>people navigating real transitions</strong> find clarity when the old maps stop working.
-      <br><br>Both kinds of work ask the same thing: seeing what's actually there.
+      I help <strong>businesses</strong> build AI and automation systems that actually reduce the work, and I help <strong>people navigating real change</strong> build the clarity to move through it well.
     </p>
+    <p class="hero-unify">Two sides of one idea: better systems for a changing world.</p>
     <div class="hero-actions">
-      <a class="btn-gold" href="#work">See What I Do</a>
-      <a class="btn-ghost" href="#about">Who I Am</a>
+      <a class="btn-gold" href="#audit">For My Business</a>
+      <a class="btn-ghost" href="#clarity">For Myself</a>
     </div>
+    <a class="hero-tertiary" href="#about">or read about the person behind both →</a>
   </div>
   <div class="hero-sigil" aria-hidden="true">S</div>
 </section>
@@ -367,8 +370,11 @@ footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-
 <section class="section tracks" id="work">
   <div class="section-inner">
     <p class="s-label fade">Two tracks, one approach</p>
-    <h2 class="s-h2 fade">What I <em>actually</em> do</h2>
-    <p class="s-lead fade">I run two parallel practices. They look different on the surface. Underneath, they're the same work — helping someone see clearly enough to move well.</p>
+    <h2 class="s-h2 fade">What changes when we work <em>together</em></h2>
+    <p class="s-lead fade">
+      <strong>Better systems. Better decisions. Greater leverage. More meaningful work. Confident adaptation to the AI era.</strong>
+      Those outcomes come from two parallel tracks. They look different on the surface — one is technical, one is personal. Underneath, they're the same work: helping something see clearly enough to move well, whether that something is a business or a person.
+    </p>
     <div class="tracks-grid">
       <div class="track fade">
         <p class="track-num">Track 01 — Business</p>
@@ -501,7 +507,7 @@ footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-
       <div class="about-body fade">
         <h2 class="s-h2" style="margin-bottom:1.5rem">Travis<br><em>Henriquez</em></h2>
         <p>I started Seeker Solutions because I was tired of watching two things happen in parallel: small businesses getting sold AI they didn't understand and couldn't use — and people losing their sense of purpose as the work they'd built their identity around started to disappear.</p>
-        <p>Those aren't separate problems. They're the same disruption seen from two angles. The businesses need clearer tools. The humans need clearer inner ground. I work on both, because I've had to work on both personally.</p>
+        <p>Those aren't separate problems. They're the same disruption seen from two angles. The businesses need clearer systems. The humans need clearer inner ground. I work on both, because I've had to work on both personally.</p>
         <p>My background is genuinely mixed. I have a degree in Religious Studies with deep roots in Eastern traditions — Buddhism, Advaita Vedanta, Kashmir Shaivism, comparative mysticism. I've maintained a serious contemplative practice for years. I've also run kitchens, managed IT systems, and more recently built AI automation infrastructure for businesses. <strong>These things aren't in conflict for me.</strong> They've always felt like different expressions of the same underlying interest: how things actually work, and how to see them clearly.</p>
         <p>I work remotely and take on a small number of clients at a time. If you're reading this and something is landing — reach out.</p>
       </div>
@@ -532,8 +538,6 @@ footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-
     </div>
   </div>
 </section>
-
-<div class="gold-rule"></div>
 
 <div class="gold-rule"></div>
 
@@ -606,11 +610,16 @@ footer p{font-family:var(--mono);font-size:.6rem;color:var(--ivory-mute);letter-
 
 <script>
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      obs.unobserve(e.target);
+    }
+  });
 }, {threshold: 0.08});
 document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-// Trigger hero
 setTimeout(() => document.querySelectorAll('.hero .fade, .hero.fade').forEach(el => el.classList.add('in')), 80);
 </script>
+
 </body>
 </html>
