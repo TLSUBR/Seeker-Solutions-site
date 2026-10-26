@@ -297,7 +297,7 @@ footer a:hover{color:var(--gold)}
 
 <script>
 // ---- CONFIG ----
-var FORM_ENDPOINT = "https://formsubmit.co/ajax/travis@seekersolutions.org"; // swap for an n8n webhook later. Empty = opens visitor's email app.
+var FORM_ENDPOINT = "https://formsubmit.co/ajax/2f448d6efaa4c681b17fa89801f209df"; // swap for an n8n webhook later. Empty = opens visitor's email app.
 // ----------------
 (function(){
   var nav=document.getElementById('nav'),btn=document.getElementById('menu');
@@ -312,15 +312,16 @@ var FORM_ENDPOINT = "https://formsubmit.co/ajax/travis@seekersolutions.org"; // 
       d._subject='Seeker Solutions: new '+(d.interest||f.getAttribute('data-interest')||'signup');d._template='table';
       d.source=f.getAttribute('data-interest')||'Contact form';d.page=location.href;
       var m=f.querySelector('.msg');
-      if(FORM_ENDPOINT){
-        fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
-          .then(function(r){if(!r.ok)throw 0;f.reset();m.textContent='Thank you. You’re on the list, and any message gets an answer within a day.'})
-          .catch(function(){m.textContent='Something went wrong. Please email travis@seekersolutions.org directly.'});
-      }else{
+      function fallback(){
         var body=Object.keys(d).filter(function(k){return k.charAt(0)!=='_'}).map(function(k){return k+': '+d[k]}).join('\n');
-        location.href='mailto:travis@seekersolutions.org?subject='+encodeURIComponent('Seeker Solutions: '+(d.interest||d.source))+'&body='+encodeURIComponent(body);
-        m.textContent='Your email app should open with the message ready to send.';
+        m.innerHTML='We couldn’t send that automatically. <a href="mailto:travis@seekersolutions.org?subject='+encodeURIComponent('Seeker Solutions: '+(d.interest||d.source))+'&body='+encodeURIComponent(body)+'">Tap here to send it by email instead</a>.';
       }
+      if(FORM_ENDPOINT){
+        m.textContent='Sending…';
+        fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+          .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||j.success===false||j.success==='false')throw 0;f.reset();m.textContent='Thank you. You’re on the list, and any message gets an answer within a day.'})})
+          .catch(fallback);
+      }else{fallback()}
     });
   }
   document.querySelectorAll('form[data-form]').forEach(wire);
@@ -372,7 +373,7 @@ var FORM_ENDPOINT = "https://formsubmit.co/ajax/travis@seekersolutions.org"; // 
     var h='<div class="res"><p class="tag">'+r.tag+'</p><h3 id="qt" tabindex="-1">'+r.t+'</h3>';
     r.p.forEach(function(x){h+='<p>'+x+'</p>'});
     h+='<div class="next"><strong>A suggested next step</strong>'+r.n+'</div>';
-    h+='<a class="btn" href="#contact" data-pick="'+r.i+'">Talk about it</a>';
+    h+='<a class="btn" href="'+(r.i==='AI Audit'?'#audit':'#clarity')+'">See the '+(r.i==='AI Audit'?'AI Audit':'Clarity Intensive')+'</a> <a class="btn ghost" href="#contact" data-pick="'+r.i+'">Or just talk it through</a>';
     h+='<form class="inline" style="margin-top:2rem" data-form data-interest="Assessment result: '+r.t.replace(/"/g,'')+'"><input type="email" name="email" placeholder="Email me updates and essays" aria-label="Your email" required><input type="hidden" name="assessment_result" value="'+r.t.replace(/"/g,'')+'"><button class="btn ghost" type="submit">Keep me posted</button><div class="msg" role="status" style="flex-basis:100%"></div></form>';
     h+='<button type="button" class="again" id="again">Take it again</button>';
     h+='<p class="q-note">A reflection tool, not a diagnosis or therapy. Your answers stay in your browser. Only your email is sent if you choose to share it. If you are in crisis or thinking about harming yourself, call or text 988 in the US, or contact local emergency services.</p></div>';
