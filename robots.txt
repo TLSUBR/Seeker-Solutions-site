@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seekersolutions.org/sitemap.xml

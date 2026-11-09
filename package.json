@@ -1,9 +1,9 @@
 {
   "name": "seeker-solutions-site",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Seeker Solutions - Single Page Website",
   "scripts": {
-    "build": "echo '✅ Static HTML site - no real build required' && mkdir -p dist && cp index.html dist/index.html"
+    "build": "mkdir -p dist && cp index.html llms.txt robots.txt sitemap.xml dist/ && cp -r assets dist/ && echo 'Static site copied to dist'"
   },
   "dependencies": {}
 }
