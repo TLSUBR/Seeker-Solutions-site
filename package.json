@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "description": "Seeker Solutions - Single Page Website",
   "scripts": {
-    "build": "mkdir -p dist && cp index.html llms.txt robots.txt sitemap.xml dist/ && cp -r assets dist/ && echo 'Static site copied to dist'"
+    "build": "mkdir -p dist && cp index.html privacy.html terms.html llms.txt robots.txt sitemap.xml dist/ && cp -r assets dist/ && echo 'Static site copied to dist'"
   },
   "dependencies": {}
 }
